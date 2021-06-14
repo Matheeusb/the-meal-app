@@ -5,7 +5,6 @@ class NetworkException implements Exception {
 
   @override
   String toString() {
-    if (message == null) return 'NetworkException';
-    return message;
+    return message ?? 'NetworkException';
   }
 }
