@@ -42,6 +42,7 @@ dev_dependencies:
   mobx_codegen:
   mockito:
   image_test_utils:
+  effective_dart:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:the_meal_app/constants/colors.dart';
-import 'package:the_meal_app/components/circular_progress_indicator.dart';
+import '../constants/colors.dart';
+import 'circular_progress_indicator.dart';
 
 class TheCard extends StatelessWidget {
   final String title;
@@ -37,7 +37,7 @@ class TheCard extends StatelessWidget {
           height: 120,
           decoration: BoxDecoration(
             borderRadius: _buildBorderRadius(),
-            color: ETERNITY,
+            color: eternity,
           ),
           child: Row(
             children: [
@@ -50,7 +50,7 @@ class TheCard extends StatelessWidget {
                     children: [
                       Text(
                           title.length > 40
-                              ? title.substring(0, 40) + '...'
+                              ? '${title.substring(0, 40)}...'
                               : title,
                           style: Theme.of(context).textTheme.headline1,
                           textAlign: TextAlign.start),
@@ -58,7 +58,7 @@ class TheCard extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 16),
                         child: Text(
                           description.length > 100
-                              ? description.substring(0, 100) + '...'
+                              ? '${description.substring(0, 100)}...'
                               : description,
                           style: Theme.of(context).textTheme.bodyText2,
                           textAlign: TextAlign.start,

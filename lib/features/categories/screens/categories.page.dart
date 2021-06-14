@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:the_meal_app/constants/colors.dart';
-import 'package:the_meal_app/components/card.dart';
-import 'package:the_meal_app/components/circular_progress_indicator.dart';
-import 'package:the_meal_app/components/snack_bar.dart';
-import 'package:the_meal_app/features/categories/store/categories.store.dart';
+
+import '../../../components/card.dart';
+import '../../../components/circular_progress_indicator.dart';
+import '../../../components/snack_bar.dart';
+import '../../../constants/colors.dart';
+import '../store/categories.store.dart';
 
 class CategoriesPage extends StatefulWidget {
   @override
@@ -41,7 +42,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
         builder: (_) {
           return Container(
             padding: EdgeInsets.all(16),
-            color: DEEP_OAK,
+            color: deepOak,
             child: store.categories == null
                 ? TheCircularProgressIndicator()
                 : ListView.builder(

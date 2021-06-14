@@ -1,6 +1,8 @@
 import 'package:mobx/mobx.dart';
-import 'package:the_meal_app/features/meals/repositories/meals.repository.dart';
-import 'package:the_meal_app/models/meal.dart';
+
+import '../../../exceptions/network_exception.dart';
+import '../../../models/meal.dart';
+import '../repositories/meals.repository.dart';
 
 part 'meals.store.g.dart';
 
@@ -15,15 +17,15 @@ abstract class _Meals with Store {
   _Meals(this.repository);
 
   @action
-  findMeals(String category, Function onError) async {
+  Future findMeals(String category, Function onError) async {
     try {
       meals = await repository.getMeals(category);
-    } catch (e) {
+    } on NetworkException catch (_) {
       onError();
     }
   }
 
-  dispose() {
+  void dispose() {
     meals = null;
   }
 }

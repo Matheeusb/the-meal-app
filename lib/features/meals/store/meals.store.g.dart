@@ -27,7 +27,7 @@ mixin _$MealsStore on _Meals, Store {
   final _$findMealsAsyncAction = AsyncAction('_Meals.findMeals');
 
   @override
-  Future findMeals(String category, Function onError) {
+  Future<dynamic> findMeals(String category, Function onError) {
     return _$findMealsAsyncAction.run(() => super.findMeals(category, onError));
   }
 

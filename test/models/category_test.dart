@@ -6,7 +6,7 @@ void main() {
   Map<String, dynamic> map;
 
   setUp((){
-    map = Map();
+    map = {};
     map['idCategory'] = '1';
     map['strCategory'] = 'Name test';
     map['strCategoryThumb'] = 'Image test';
@@ -14,7 +14,7 @@ void main() {
   });
 
   test('Should return a category object from a map', () {
-    Category category = Category.fromJson(map);
+    var category = Category.fromJson(map);
 
     expect(category.id, '1');
     expect(category.name, 'Name test');
@@ -25,7 +25,7 @@ void main() {
   test('Should return a category object from a map with a null attribute', () {
     map['strCategoryDescription'] = null;
 
-    Category category = Category.fromJson(map);
+    var category = Category.fromJson(map);
 
     expect(category.id, '1');
     expect(category.name, 'Name test');

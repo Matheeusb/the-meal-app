@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
-import 'package:the_meal_app/components/circular_progress_indicator.dart';
-import 'package:the_meal_app/components/snack_bar.dart';
-import 'package:the_meal_app/features/details/store/details.store.dart';
-import 'package:the_meal_app/models/meal.dart';
+
+import '../../../components/circular_progress_indicator.dart';
+import '../../../components/snack_bar.dart';
+import '../../../models/meal.dart';
+import '../store/details.store.dart';
 
 class MealDetailsPage extends StatefulWidget {
   @override

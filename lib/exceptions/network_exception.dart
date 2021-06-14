@@ -1,5 +1,5 @@
 class NetworkException implements Exception {
-  final message;
+  final String message;
 
   NetworkException({this.message});
 

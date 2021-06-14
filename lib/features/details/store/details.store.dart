@@ -1,7 +1,9 @@
 import 'package:mobx/mobx.dart';
-import 'package:the_meal_app/features/details/repositories/details.repository.dart';
-import 'package:the_meal_app/models/meal_details.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../exceptions/network_exception.dart';
+import '../../../models/meal_details.dart';
+import '../repositories/details.repository.dart';
 
 part 'details.store.g.dart';
 
@@ -16,25 +18,25 @@ abstract class _MealDetails with Store {
   _MealDetails(this.repository);
 
   @action
-  findDetails(String idMeal, Function onError) async {
+  Future findDetails(String idMeal, Function onError) async {
     try {
-      List<MealDetails> meals = await repository.getMealDetails(idMeal);
+      var meals = await repository.getMealDetails(idMeal);
       mealDetails = meals.first;
-    } catch (e) {
+    } on NetworkException catch (_) {
       onError();
     }
   }
 
   @action
-  openYoutube(String url, Function onError) async {
+  Future openYoutube(String url, Function onError) async {
     try {
       await launch(url);
-    } catch (e) {
+    } on NetworkException catch (_) {
       onError();
     }
   }
 
-  dispose() {
+  void dispose() {
     mealDetails = null;
   }
 }
