@@ -31,8 +31,8 @@ void main() {
   });
 
   test('Should return a exception', () async {
-    when(dioMock.get(any))
-        .thenAnswer((_) async => Response(data: '', statusCode: HttpStatus.serviceUnavailable));
+    when(dioMock.get(any)).thenAnswer((_) async =>
+        Response(data: '', statusCode: HttpStatus.serviceUnavailable));
 
     expect(() async => await repository.getMealDetails('52772'),
         throwsA(isA<NetworkException>()));

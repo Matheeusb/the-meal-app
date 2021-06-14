@@ -36,7 +36,8 @@ void main() {
     expect(meal.ingredients, ['Ingredient 1 test', 'Ingredient 2 test']);
   });
 
-  test('Should return a meal details object from a map with a null attribute', () {
+  test('Should return a meal details object from a map with a null attribute',
+      () {
     map['strTags'] = null;
 
     var meal = MealDetails.fromJson(map);
@@ -53,7 +54,8 @@ void main() {
     expect(meal.ingredients, ['Ingredient 1 test', 'Ingredient 2 test']);
   });
 
-  test('Should return a meal details object from a map with null ingredients', () {
+  test('Should return a meal details object from a map with null ingredients',
+      () {
     map['strIngredient1'] = null;
     map['strIngredient2'] = null;
 
