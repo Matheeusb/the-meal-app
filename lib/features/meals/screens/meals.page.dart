@@ -17,7 +17,6 @@ class MealsPage extends StatefulWidget {
 class _MealsPageState extends State<MealsPage> {
   MealsStore store;
   Category category;
-  final scaffKey = GlobalKey<ScaffoldState>();
 
   @override
   void didChangeDependencies() {
@@ -32,7 +31,7 @@ class _MealsPageState extends State<MealsPage> {
     store.findMeals(
       category.name,
       () {
-        return scaffKey.currentState.showSnackBar(snackBar);
+        return ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
     );
   }
@@ -46,7 +45,6 @@ class _MealsPageState extends State<MealsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffKey,
       appBar: AppBar(
         title: Row(
           children: [

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 import 'package:the_meal_app/main.dart';
 import 'package:the_meal_app/models/meal_details.dart';
 
@@ -29,7 +29,7 @@ void main() {
 
   testWidgets('Should display widgets when meals page is opened',
       (tester) async {
-    provideMockedNetworkImages(
+        mockNetworkImagesFor(
       () async {
         when(repository.getMealDetails(any))
             .thenAnswer((_) async => [mealDetails]);

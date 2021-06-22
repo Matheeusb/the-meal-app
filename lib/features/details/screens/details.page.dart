@@ -16,7 +16,6 @@ class MealDetailsPage extends StatefulWidget {
 class _MealDetailsPageState extends State<MealDetailsPage> {
   MealDetailsStore store;
   Meal meal;
-  final scaffKey = GlobalKey<ScaffoldState>();
 
   @override
   void didChangeDependencies() {
@@ -27,7 +26,7 @@ class _MealDetailsPageState extends State<MealDetailsPage> {
     store.findDetails(
       meal.id,
       () {
-        return scaffKey.currentState.showSnackBar(snackBar);
+        return ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
     );
   }
@@ -41,7 +40,6 @@ class _MealDetailsPageState extends State<MealDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffKey,
       body: Observer(
         builder: (_) {
           return store.mealDetails == null
@@ -121,10 +119,11 @@ class _MealDetailsPageState extends State<MealDetailsPage> {
                                                 onPressed: () {
                                                   store.openYoutube(
                                                       store.mealDetails.video,
-                                                      () => scaffKey
-                                                          .currentState
-                                                          .showSnackBar(
-                                                              snackBar));
+                                                      () =>
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                                  snackBar));
                                                 },
                                               ),
                                               IconButton(

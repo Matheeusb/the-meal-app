@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 import '../../../constants/api.dart';
@@ -12,12 +10,13 @@ class MealDetailsRepository {
   MealDetailsRepository(this._dio);
 
   Future<List<MealDetails>> getMealDetails(String idMeal) async {
-    final response = await _dio.get('$theMealUrlBase${'lookup.php?i=$idMeal'}');
-    if (response.statusCode == HttpStatus.ok) {
+    try {
+      final response =
+          await _dio.get('$theMealUrlBase${'lookup.php?i=$idMeal'}');
       return response.data['meals']
           .map<MealDetails>((mealDetails) => MealDetails.fromJson(mealDetails))
           .toList();
-    } else {
+    } on Exception catch (_) {
       throw NetworkException();
     }
   }

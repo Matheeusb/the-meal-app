@@ -15,7 +15,6 @@ class CategoriesPage extends StatefulWidget {
 
 class _CategoriesPageState extends State<CategoriesPage> {
   CategoriesStore store;
-  final scaffKey = GlobalKey<ScaffoldState>();
 
   @override
   void didChangeDependencies() {
@@ -23,7 +22,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
     store = Provider.of<CategoriesStore>(context);
     store.findCategories(
       () {
-        return scaffKey.currentState.showSnackBar(snackBar);
+        return ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
     );
   }
@@ -31,7 +30,6 @@ class _CategoriesPageState extends State<CategoriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffKey,
       appBar: AppBar(
         title: Image.asset(
           'assets/images/logo-the-meal.png',

@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 import 'package:the_meal_app/components/card.dart';
 import 'package:the_meal_app/main.dart';
 import 'package:the_meal_app/models/category.dart';
@@ -28,7 +28,7 @@ void main() {
   testWidgets('Should display a card when categories page is opened',
       (tester) async {
     when(repository.getCategories()).thenAnswer((_) async => [category]);
-    provideMockedNetworkImages(() async {
+    mockNetworkImagesFor(() async {
       await tester.pumpWidget(TheMealApp(
           initialRoute: '/categories_page', categoriesRepository: repository));
 
@@ -43,7 +43,7 @@ void main() {
       (tester) async {
     when(repository.getCategories())
         .thenAnswer((_) async => [category, category]);
-    provideMockedNetworkImages(() async {
+    mockNetworkImagesFor(() async {
       await tester.pumpWidget(TheMealApp(
           initialRoute: '/categories_page', categoriesRepository: repository));
 
