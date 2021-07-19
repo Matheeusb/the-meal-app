@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:the_meal_app/app_theme.dart';
-import 'package:the_meal_app/features/categories/repositories/categories.repository.dart';
-import 'package:the_meal_app/features/details/repositories/details.repository.dart';
-import 'package:the_meal_app/features/details/screens/details.page.dart';
-import 'package:the_meal_app/features/details/store/details.store.dart';
-import 'package:the_meal_app/features/meals/repositories/meals.repository.dart';
-import 'package:the_meal_app/features/meals/screens/meals.page.dart';
-import 'package:the_meal_app/features/meals/store/meals.store.dart';
 
+import 'app_theme.dart';
+import 'features/categories/repositories/categories.repository.dart';
 import 'features/categories/screens/categories.page.dart';
 import 'features/categories/store/categories.store.dart';
+import 'features/details/repositories/details.repository.dart';
+import 'features/details/screens/details.page.dart';
+import 'features/details/store/details.store.dart';
+import 'features/meals/repositories/meals.repository.dart';
+import 'features/meals/screens/meals.page.dart';
+import 'features/meals/store/meals.store.dart';
 import 'features/splash/screens/splash.page.dart';
 
 void main() {

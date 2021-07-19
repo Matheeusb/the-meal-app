@@ -28,7 +28,7 @@ mixin _$CategoriesStore on _CategoriesStore, Store {
       AsyncAction('_CategoriesStore.findCategories');
 
   @override
-  Future findCategories(Function onError) {
+  Future<dynamic> findCategories(Function onError) {
     return _$findCategoriesAsyncAction.run(() => super.findCategories(onError));
   }
 

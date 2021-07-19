@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
+import 'package:network_image_mock/network_image_mock.dart';
 import 'package:the_meal_app/components/card.dart';
 import 'package:the_meal_app/main.dart';
 import 'package:the_meal_app/models/meal.dart';
@@ -22,7 +22,7 @@ void main() {
 
   testWidgets('Should display a card when meals page is opened',
       (tester) async {
-    provideMockedNetworkImages(() async {
+        mockNetworkImagesFor(() async {
       when(repository.getMeals(any)).thenAnswer((_) async => [meal]);
       await tester.pumpWidget(TheMealApp(
         initialRoute: '/meals_page',
@@ -38,7 +38,7 @@ void main() {
 
   testWidgets('Should display two cards when meals page is opened',
       (tester) async {
-    provideMockedNetworkImages(() async {
+        mockNetworkImagesFor(() async {
       when(repository.getMeals(any)).thenAnswer((_) async => [meal, meal]);
       await tester.pumpWidget(TheMealApp(
         initialRoute: '/meals_page',

@@ -27,7 +27,7 @@ mixin _$MealDetailsStore on _MealDetails, Store {
   final _$findDetailsAsyncAction = AsyncAction('_MealDetails.findDetails');
 
   @override
-  Future findDetails(String idMeal, Function onError) {
+  Future<dynamic> findDetails(String idMeal, Function onError) {
     return _$findDetailsAsyncAction
         .run(() => super.findDetails(idMeal, onError));
   }
@@ -35,7 +35,7 @@ mixin _$MealDetailsStore on _MealDetails, Store {
   final _$openYoutubeAsyncAction = AsyncAction('_MealDetails.openYoutube');
 
   @override
-  Future openYoutube(String url, Function onError) {
+  Future<dynamic> openYoutube(String url, Function onError) {
     return _$openYoutubeAsyncAction.run(() => super.openYoutube(url, onError));
   }
 

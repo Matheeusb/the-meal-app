@@ -15,7 +15,7 @@ void main() {
   MealsRepository repository;
   DioMock dioMock;
 
-  setUp((){
+  setUp(() {
     dioMock = DioMock();
     repository = MealsRepository(dioMock);
   });
@@ -31,8 +31,8 @@ void main() {
   });
 
   test('Should return a exception', () async {
-    when(dioMock.get(any))
-        .thenAnswer((_) async => Response(data: '', statusCode: HttpStatus.serviceUnavailable));
+    when(dioMock.get(any)).thenAnswer((_) async =>
+        Response(data: '', statusCode: HttpStatus.serviceUnavailable));
 
     expect(() async => await repository.getMeals('Beef'),
         throwsA(isA<NetworkException>()));

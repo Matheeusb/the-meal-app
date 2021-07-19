@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:the_meal_app/components/card.dart';
-import 'package:the_meal_app/components/circular_progress_indicator.dart';
-import 'package:the_meal_app/components/snack_bar.dart';
-import 'package:the_meal_app/constants/colors.dart';
-import 'package:the_meal_app/features/meals/store/meals.store.dart';
-import 'package:the_meal_app/models/category.dart';
+
+import '../../../components/card.dart';
+import '../../../components/circular_progress_indicator.dart';
+import '../../../components/snack_bar.dart';
+import '../../../constants/colors.dart';
+import '../../../models/category.dart';
+import '../store/meals.store.dart';
 
 class MealsPage extends StatefulWidget {
   @override
@@ -16,7 +17,6 @@ class MealsPage extends StatefulWidget {
 class _MealsPageState extends State<MealsPage> {
   MealsStore store;
   Category category;
-  final scaffKey = GlobalKey<ScaffoldState>();
 
   @override
   void didChangeDependencies() {
@@ -31,7 +31,7 @@ class _MealsPageState extends State<MealsPage> {
     store.findMeals(
       category.name,
       () {
-        return scaffKey.currentState.showSnackBar(snackBar);
+        return ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
     );
   }
@@ -45,7 +45,6 @@ class _MealsPageState extends State<MealsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffKey,
       appBar: AppBar(
         title: Row(
           children: [
@@ -61,7 +60,7 @@ class _MealsPageState extends State<MealsPage> {
         builder: (_) {
           return Container(
             padding: EdgeInsets.all(16),
-            color: DEEP_OAK,
+            color: deepOak,
             child: store.meals == null
                 ? TheCircularProgressIndicator()
                 : ListView.builder(

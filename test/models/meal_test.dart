@@ -6,14 +6,14 @@ void main() {
   Map<String, dynamic> map;
 
   setUp((){
-    map = Map();
+    map = {};
     map['idMeal'] = '1';
     map['strMeal'] = 'Name test';
     map['strMealThumb'] = 'Image test';
   });
 
   test('Should return a meal object from a map', () {
-    Meal meal = Meal.fromJson(map);
+    var meal = Meal.fromJson(map);
 
     expect(meal.id, '1');
     expect(meal.name, 'Name test');
@@ -23,7 +23,7 @@ void main() {
   test('Should return a meal object from a map with a null attribute', () {
     map['strMealThumb'] = null;
 
-    Meal meal = Meal.fromJson(map);
+    var meal = Meal.fromJson(map);
 
     expect(meal.id, '1');
     expect(meal.name, 'Name test');

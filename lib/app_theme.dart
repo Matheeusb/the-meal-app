@@ -5,7 +5,7 @@ import 'constants/colors.dart';
 ThemeData appTheme() {
   return ThemeData(
       appBarTheme: AppBarTheme(
-        color: ETERNITY,
+        color: eternity,
       ),
       textTheme: TextTheme(
         headline1: TextStyle(
@@ -24,5 +24,5 @@ ThemeData appTheme() {
           fontWeight: FontWeight.normal,
         ),
       ),
-      scaffoldBackgroundColor: DEEP_OAK);
+      scaffoldBackgroundColor: deepOak);
 }

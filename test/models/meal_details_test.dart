@@ -5,7 +5,7 @@ void main() {
   Map<String, dynamic> map;
 
   setUp(() {
-    map = Map();
+    map = {};
     map['idMeal'] = '1';
     map['strMeal'] = 'Name test';
     map['strDrinkAlternate'] = 'Drink test';
@@ -22,7 +22,7 @@ void main() {
   });
 
   test('Should return a meal details object from a map', () {
-    MealDetails meal = MealDetails.fromJson(map);
+    var meal = MealDetails.fromJson(map);
 
     expect(meal.id, '1');
     expect(meal.name, 'Name test');
@@ -36,10 +36,11 @@ void main() {
     expect(meal.ingredients, ['Ingredient 1 test', 'Ingredient 2 test']);
   });
 
-  test('Should return a meal details object from a map with a null attribute', () {
+  test('Should return a meal details object from a map with a null attribute',
+      () {
     map['strTags'] = null;
 
-    MealDetails meal = MealDetails.fromJson(map);
+    var meal = MealDetails.fromJson(map);
 
     expect(meal.id, '1');
     expect(meal.name, 'Name test');
@@ -53,11 +54,12 @@ void main() {
     expect(meal.ingredients, ['Ingredient 1 test', 'Ingredient 2 test']);
   });
 
-  test('Should return a meal details object from a map with null ingredients', () {
+  test('Should return a meal details object from a map with null ingredients',
+      () {
     map['strIngredient1'] = null;
     map['strIngredient2'] = null;
 
-    MealDetails meal = MealDetails.fromJson(map);
+    var meal = MealDetails.fromJson(map);
 
     expect(meal.measures, ['Measure 1 test', 'Measure 2 test']);
     expect(meal.ingredients, isEmpty);

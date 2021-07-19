@@ -53,7 +53,9 @@ void main() {
     expect(store.mealDetails, null);
   });
 
-  test('Should return the details of a meal as null after performing the dispose', () async {
+  test(
+      'Should return the details of a meal as null after performing the dispose',
+      () async {
     when(mockMealDetailsRepository.getMealDetails(any))
         .thenAnswer((_) async => [mealDetails]);
 

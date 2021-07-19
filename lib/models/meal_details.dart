@@ -26,15 +26,15 @@ class MealDetails {
   });
 
   factory MealDetails.fromJson(Map<String, dynamic> map) {
-    List<String> ingredientList = [];
-    for (int i = 1; i <= 20; i++) {
+    var ingredientList = <String>[];
+    for (var i = 1; i <= 20; i++) {
       if (map['strIngredient$i'] != null && map['strIngredient$i'] != "") {
         ingredientList.add(map['strIngredient$i']);
       }
     }
 
-    List<String> measureList = [];
-    for (int i = 1; i <= 20; i++) {
+    var measureList = <String>[];
+    for (var i = 1; i <= 20; i++) {
       if (map['strMeasure$i'] != null && map['strMeasure$i'] != "") {
         measureList.add(map['strMeasure$i']);
       }
